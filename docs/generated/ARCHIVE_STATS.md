@@ -1,1 +1,20 @@
-# Generated archive statistics\n\nGenerated: 2026-11-14\n\n| Module | Files | Bytes |\n| --- | ---: | ---: |\n| apps/static-platform | 195 | 1318496 |\n| apps/flutter-mobile | 188 | 961513 |\n| services/vision-module | 2369 | 106555561 |\n| services/go2-robot | 1849 | 91202586 |\n| legacy/health_new_p04 | 1069 | 27029998 |\n| legacy/original-flutter | 185 | 950789 |\n| launcher | 12 | 8839 |\n| configs | 1 | 451 |\n| docs | 6 | 19232 |\n\nSource commits:\n- unitree_go: b5bbf2a0d219cb06a48f56a9ca08d9ecb01e0bdb\n- Vision-Module: f52ce69c7e6d315cc0690367fa538158deb82a27\n- ai_world_static_system: 2743187caf064c211a1c8c2979ca9674f14cbf4c\n
+# Generated archive statistics
+
+Generated: 2026-11-14
+
+| Module | Files | Bytes |
+| --- | ---: | ---: |
+| apps/static-platform | 195 | 1318496 |
+| apps/flutter-mobile | 188 | 961513 |
+| services/vision-module | 2369 | 106555561 |
+| services/go2-robot | 1849 | 91202586 |
+| legacy/health_new_p04 | 1069 | 27029998 |
+| legacy/original-flutter | 185 | 950789 |
+| launcher | 12 | 8839 |
+| configs | 1 | 451 |
+| docs | 6 | 19232 |
+
+Source commits:
+- unitree_go: b5bbf2a0d219cb06a48f56a9ca08d9ecb01e0bdb
+- Vision-Module: f52ce69c7e6d315cc0690367fa538158deb82a27
+- ai_world_static_system: 2743187caf064c211a1c8c2979ca9674f14cbf4c
