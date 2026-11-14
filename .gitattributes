@@ -1,0 +1,11 @@
+* text=auto
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.vue text eol=lf
+*.dart text eol=lf
+# The upstream tar archives contained pointer text for several unavailable
+# binaries. They are kept as ordinary text in this public snapshot.

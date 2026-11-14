@@ -1,0 +1,59 @@
+# Archive-local configuration and credentials
+configs/local.env
+**/.env
+!.env.example
+
+# Common credential material. Source files such as fetch_device_key.py remain tracked.
+**/*.pem
+**/*.key
+**/*credentials*.json
+**/*device_key*.json
+
+# Python, Node, Flutter and runtime output
+**/.venv/
+**/venv/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/node_modules/
+**/.dart_tool/
+**/.pub-cache/
+**/build/
+**/dist/
+**/coverage/
+**/logs/
+**/runtime/
+**/runtime_logs/
+**/*.log
+**/*.pid
+**/*.db
+**/*.sqlite*
+**/data/
+**/runs/
+**/artifacts/
+**/tmp/
+
+# Local media and generated model output
+**/*.mp4
+**/*.avi
+**/*.mkv
+**/*.bag
+**/*.pt
+**/*.pth
+**/*.onnx
+**/*.engine
+**/*.bin
+**/*.zip
+**/*.rar
+**/*.7z
+
+# Editors and OS files
+.idea/
+.vscode/
+.cursor/
+Thumbs.db
+Desktop.ini
+.DS_Store
+
