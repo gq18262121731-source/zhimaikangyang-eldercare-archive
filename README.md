@@ -61,3 +61,5 @@ docs/                       架构、启动、清单和恢复文档
 
 本地归档完成后，按 [`docs/ARCHIVE_MANIFEST.md`](docs/ARCHIVE_MANIFEST.md) 记录文件数量、校验值和外部模型备份位置。跨电脑恢复按 [`docs/RECOVERY.md`](docs/RECOVERY.md) 执行。
 
+缺失二进制的逐项 OID、大小、影响和恢复方法见 [`docs/MISSING_ASSETS.md`](docs/MISSING_ASSETS.md)；当前已执行与尚未执行的验收状态见 [`docs/ACCEPTANCE.md`](docs/ACCEPTANCE.md)。
+
