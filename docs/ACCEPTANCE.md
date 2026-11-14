@@ -8,7 +8,7 @@
 | Monorepo 目录和关键入口 | PASS | `launcher/check-env.ps1` 已检查静态、Vision、Go2、Flutter、Legacy 路径 |
 | PowerShell 启动器语法 | PASS | `launcher/*.ps1` 统一解析通过 |
 | Wi-Fi IP 参考配置脚本 | PASS | `set-network-ip.ps1 -IpAddress 127.0.0.1` 已生成并验证 `configs/local.env`；未验证真实热点联调 |
-| GitHub Public 仓库推送 | PASS | 远程 `main` 已建立，最新封存提交为 `56c696d` |
+| GitHub Public 仓库推送 | PASS | 远程 `main` 已建立，封存版本由 `archive-v1.0.0` 固定 |
 | SHA256 清单本地复算 | PASS | `docs/generated/SHA256SUMS.txt` 复算结果 `checksum_bad=0` |
 | 干净克隆后 SHA256 复算 | PASS | 临时干净克隆共检查 5877 个文件，`checksum_bad=0`；清单排除 `docs/generated/` 自身 |
 | 静态平台实际启动 | NOT_TESTED | 本次只做路径和启动脚本检查，未启动服务窗口 |
