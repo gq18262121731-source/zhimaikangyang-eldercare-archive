@@ -3,14 +3,14 @@
 ## 从 GitHub 恢复
 
 ```powershell
-git clone <ARCHIVE_REPOSITORY_URL> zhimai-eldercare-archive
+git clone https://github.com/gq18262121731-source/zhimai-eldercare-archive.git zhimai-eldercare-archive
 Set-Location .\zhimai-eldercare-archive
-git lfs install
-git lfs pull
 .\launcher\check-env.bat
 ```
 
-如果仓库使用 Git LFS，先确认大文件指针已经下载；如果模型、视频或 ROS bag 存在于 Release/外部备份，则按 `docs/ARCHIVE_MANIFEST.md` 的校验值恢复到原模块路径。
+当前公开归档不包含可用的 LFS 对象；缺失的 26 个路径（21 个唯一 OID）按 [`MISSING_ASSETS.md`](MISSING_ASSETS.md) 从原始仓库 LFS 或离线备份恢复。不要执行 `git lfs pull` 后就直接认为恢复完整。
+
+恢复后先按 `MISSING_ASSETS.md` 对二进制逐项检查大小和 SHA256，再按 `docs/ACCEPTANCE.md` 验收各模块。
 
 ## 按模块恢复
 
@@ -26,7 +26,7 @@ git lfs pull
 .\launcher\set-network-ip.bat
 ```
 
-然后把 `configs/local.env` 中的值复制到需要连接局域网的模块本地 `.env`；不要把 `configs/local.env` 提交到 GitHub。机器人有线网段和移动 Wi-Fi 网段可能不同，Go2 的 `UNITREE_ROBOT_IP` 应以现场探测结果为准。
+该脚本只会读取当前 Wi-Fi/热点 IPv4 并生成统一配置参考 `configs/local.env`，不会自动改写三个模块内部配置，也不会修改网卡地址。需要连接局域网时，再把值复制到对应模块的本地 `.env`；不要把 `configs/local.env` 提交到 GitHub。机器人有线网段和移动 Wi-Fi 网段可能不同，Go2 的 `UNITREE_ROBOT_IP` 应以现场探测结果为准。
 
 ## 无法恢复时的排查顺序
 

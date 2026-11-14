@@ -147,7 +147,7 @@ Set-Location .\legacy\health_new_p04
 .\launcher\set-network-ip.bat -InterfaceAlias '移动热点' -RobotIp 192.168.123.161
 ```
 
-脚本写入 `configs/local.env`（该文件被 `.gitignore` 排除），包含：
+脚本只会获取当前移动 Wi-Fi IPv4 并生成统一配置参考 `configs/local.env`（该文件被 `.gitignore` 排除），包含：
 
 ```text
 HOST_IP=当前 Wi-Fi IPv4
@@ -157,5 +157,5 @@ MAIN_SYSTEM_BASE_URL=http://当前 Wi-Fi IPv4:8080
 UNITREE_ROBOT_IP=填写的 Go2 地址
 ```
 
-它不会修改 `apps/`、`services/` 或 `legacy/` 内的原始代码和 `.env.example`。模块启动时仍需把对应变量填入该模块自己的本地 `.env`，这样每次换网络只需重新运行一次脚本即可获得新值。
+它不会自动修改网卡，也不会改写 `apps/`、`services/` 或 `legacy/` 内的原始代码和 `.env.example`。模块启动时仍需把对应变量人工填入该模块自己的本地 `.env`；因此它是一键获取和生成参考配置，不是全模块自动网络配置。
 

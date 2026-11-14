@@ -19,11 +19,11 @@
 
 ## 校验清单生成
 
-仓库已提交一份按 Git 跟踪文件生成的校验清单，位于 `docs/generated/SHA256SUMS.txt`；LFS 文件这里记录的是 LFS 指针文件校验值，实际对象由 Git LFS 校验。需要重新生成时执行：
+仓库已提交一份按 Git 跟踪文件生成的校验清单，位于 `docs/generated/SHA256SUMS.txt`；清单排除 `docs/generated/` 自身，避免自引用哈希。当前缺失二进制已改为带标记的普通文本占位，因此清单验证的是归档占位文件；实际二进制恢复验证见 `MISSING_ASSETS.md`。需要重新生成时执行：
 
 ```powershell
 New-Item -ItemType Directory -Force docs/generated | Out-Null
-git -c core.quotePath=false ls-files | ForEach-Object { Get-FileHash -Algorithm SHA256 -LiteralPath $_ } |
+git -c core.quotePath=false ls-files | Where-Object { $_ -notlike 'docs/generated/*' } | ForEach-Object { Get-FileHash -Algorithm SHA256 -LiteralPath $_ } |
   ForEach-Object { '{0}  {1}' -f $_.Hash, $_.Path } |
   Set-Content docs/generated/SHA256SUMS.txt -Encoding UTF8
 ```
@@ -39,5 +39,5 @@ rg -n --hidden --glob '!**/.git/**' 'BEGIN .*PRIVATE KEY|AKIA[0-9A-Z]{16}|sk-[A-
 
 模型权重、视频、ROS bag、数据库和设备密钥不应直接作为普通 Git 文件提交。当前根目录 `.gitattributes` 为常见模型/视频/压缩包提供 LFS 规则；如果文件受许可限制或体积过大，应放到 Git LFS、Release 附件或受控备份，并在这里补充外部位置和 SHA256。三个上游仓库的许可证状态需要在公开发布前人工确认。
 
-本次上游源码归档中有 21 个二进制文件本身已经是 Git LFS 指针文件，下载的源码压缩包没有对应 LFS 对象（`git lfs fsck` 会报告 missing object）。为保证公开仓库可克隆，这些 133 字节指针文本按普通文本提交；实际二进制需要从原始仓库 LFS、Release 或离线备份恢复，不能把指针误当成可执行库或音频文件。
+本次上游源码归档中有 21 个唯一二进制 OID、对应 26 个路径；下载的源码压缩包没有对应 LFS 对象（`git lfs fsck` 会报告 missing object）。为保证公开仓库可克隆，这些指针已加归档标记并按普通文本提交；实际二进制需要从原始仓库 LFS、Release 或离线备份恢复，不能把占位文件误当成可执行库或音频文件。逐项记录见 `MISSING_ASSETS.md`。
 
